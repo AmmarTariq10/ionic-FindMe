@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      FindMe
+      
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button royal (click)='getlocation()'> Locate </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content padding >
+  
+        <ion-list>
+          <form (ngSubmit)='sendSms(form.phone, form.user)'>
+        <ion-item *ngIf='data.lat'>
+          <ion-label> Name: </ion-label>
+          <ion-input placeholder="Write name with which you want to share location" [(ngModel)]="form.user" name="title" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf='data.lat'>
+          <ion-label> Number : </ion-label>
+          <ion-input placeholder="+92xxxxxx" [(ngModel)]="form.phone" name="title" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label> Latitude : {{data.lat}} </ion-label>  
+        </ion-item>
+        
+        <ion-item>
+            <ion-label> Longitude : {{data.long}}</ion-label>
+          </ion-item> 
+
+        <ion-item  *ngIf='data.lat'>
+          <button ion-button block type='submit' > Send Location </button>
+          </ion-item>
+
+
+
+          </form>
+
+      </ion-list>
+      
+
+       
+   
+ 
+</ion-content>
